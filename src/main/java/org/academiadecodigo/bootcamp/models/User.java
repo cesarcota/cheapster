@@ -27,7 +27,7 @@ public class User {
         this.password = password;
     }
 
-    public String getMail() {
+    public String getEmail() {
         return email;
     }
 
@@ -41,5 +41,20 @@ public class User {
 
     public void setGroupMap(Map<Integer, Group> groupMap) {
         this.groupMap = groupMap;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return email.equals(user.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return email.hashCode();
     }
 }

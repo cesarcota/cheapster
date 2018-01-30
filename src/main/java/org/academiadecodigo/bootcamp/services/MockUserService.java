@@ -19,8 +19,11 @@ public class MockUserService implements UserService{
         if(user==null){
             return;
         }
+        if (findByEmail(user.getEmail()) != null){
+            return;
+        }
 
-        userMap.put(user.getMail(),user);
+        userMap.put(user.getEmail(),user);
 
     }
 
@@ -31,7 +34,7 @@ public class MockUserService implements UserService{
             return;
         }
 
-        userMap.remove(user.getMail());
+        userMap.remove(user.getEmail());
 
     }
 
