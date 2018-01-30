@@ -16,9 +16,6 @@
     <bean id="userService" class="org.academiadecodigo.bootcamp.services.MockUserService">
     </bean>
 
-    <bean id="bootcampService" class="org.academiadecodigo.bootcamp.services.MockBootcampService">
-    </bean>
-
     <bean id="user" class="org.academiadecodigo.bootcamp.models.User">
     </bean>
 
