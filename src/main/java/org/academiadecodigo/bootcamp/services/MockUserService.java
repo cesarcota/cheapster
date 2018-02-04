@@ -20,7 +20,7 @@ public class MockUserService implements UserService{
             return;
         }
 
-        userMap.put(user.getMail(),user);
+        userMap.put(user.getEmail(),user);
 
     }
 
@@ -31,7 +31,7 @@ public class MockUserService implements UserService{
             return;
         }
 
-        userMap.remove(user.getMail());
+        userMap.remove(user.getEmail());
 
     }
 

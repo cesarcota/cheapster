@@ -3,7 +3,7 @@ package org.academiadecodigo.bootcamp.authenticator;
 import org.academiadecodigo.bootcamp.models.User;
 import org.academiadecodigo.bootcamp.services.UserService;
 
-public class authenticate {
+public class Authenticate {
 
     private UserService userService;
 
