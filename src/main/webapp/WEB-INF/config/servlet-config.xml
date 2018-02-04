@@ -22,4 +22,11 @@
     <bean id="authenticator" class="org.academiadecodigo.bootcamp.authenticator.Authenticator">
     </bean>
 
+    <bean id="groupService" class="org.academiadecodigo.bootcamp.services.MockGroupService">
+    </bean>
+
+    <bean id="group" class="org.academiadecodigo.bootcamp.models.Group">
+
+    </bean>
+
 </beans>
