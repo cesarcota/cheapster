@@ -19,9 +19,6 @@ public class MockUserService implements UserService{
         if(user==null){
             return;
         }
-        if (findByEmail(user.getEmail()) != null){
-            return;
-        }
 
         userMap.put(user.getEmail(),user);
 
@@ -52,8 +49,9 @@ public class MockUserService implements UserService{
     }
 
     @Override
-    public List<Group> findAllGroups(User user) {
+    public void updateRound(Integer id) {
 
-        return new ArrayList<Group>(user.getGroupMap().values());
     }
+
+
 }

@@ -28,6 +28,7 @@
 
 </form:form>
 
+<div style="color:red">${error}</div>
 
 
 </body>

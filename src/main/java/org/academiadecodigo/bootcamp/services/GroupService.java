@@ -14,10 +14,6 @@ public interface GroupService extends Service {
 
     List<Group> findAllGroups();
 
-    List<User> findAllUsers(Group group);
-
     Group findById(Integer id);
-
-    void setType(Group group,Type type);
 
 }
