@@ -39,11 +39,7 @@ public class MockGroupService implements GroupService {
 
     }
 
-    @Override
-    public List<User> findAllUsers(Group group) {
 
-        return new ArrayList<User>(group.getUserMap().values());
-    }
 
     @Override
     public Group findById(Integer id) {
@@ -52,20 +48,5 @@ public class MockGroupService implements GroupService {
 
     }
 
-    @Override
-    public void setType(Group group,Type type) {
 
-        if(group==null){
-            return;
-        }
-
-        Group tempGroup=findById(group.getId());
-
-        if(tempGroup==null){
-            return;
-        }
-
-        tempGroup.setType(type);
-
-    }
 }

@@ -6,8 +6,9 @@ import org.academiadecodigo.bootcamp.services.UserService;
 import org.academiadecodigo.bootcamp.utils.Security;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 import static junit.framework.TestCase.*;
-import static org.mockito.Mockito.*;
 
 
 
@@ -29,27 +30,58 @@ public class UserServiceTests {
         user2.setUserName("luis");
         user2.setPassword(Security.getHash("luis"));
         user2.setEmail("luis@cesar.com");
-
-        userService.addUser(user1);
-
-
     }
 
     @Test
     public void shouldNotAddANullUser(){
         userService.addUser(null);
-        assertTrue(userService.findAllUsers().size() == 1);
+        assertTrue(userService.findAllUsers().size() == 0);
     }
     @Test
     public void shouldAddAnewUserWithEmptyMap(){
         userService.addUser(user2);
-        assertTrue(userService.findAllUsers().size() == 2);
+        assertTrue(userService.findAllUsers().size() == 1);
     }
 
     @Test
     public void findByEmailShouldReturnSameUser(){
+        userService.addUser(user1);
         User user = userService.findByEmail("cesar@cesar.com");
          assertTrue(user.equals(user));
     }
+
+    @Test
+    public void findAllShouldReturnAList(){
+        assertTrue(userService.findAllUsers() instanceof List);
+    }
+    @Test
+    public void findAllShouldReturnAListContainingAllRegisteredUsers(){
+        userService.addUser(user1);
+        userService.addUser(user2);
+
+        assertTrue(userService.findAllUsers().size() == 2);
+        assertTrue(userService.findAllUsers().contains(user1));
+        assertTrue(userService.findAllUsers().contains(user2));
+    }
+
+    @Test
+    public void removeUserShouldRemoveTheUserFromTheList(){
+        userService.addUser(user1);
+        userService.addUser(user2);
+
+        assertTrue(userService.findAllUsers().size() == 2);
+        userService.removeUser(user1);
+        assertTrue(userService.findByEmail(user1.getEmail()) == null);
+        assertTrue(userService.findAllUsers().size() == 1);
+    }
+
+    @Test
+    public void shouldNotBePossibleToRemoveANullUser(){
+        userService.addUser(user1);
+        assertTrue(userService.findAllUsers().size() == 1);
+        userService.removeUser(null);
+        assertTrue(userService.findAllUsers().size() == 1);
+    }
+
 
 }

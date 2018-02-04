@@ -44,4 +44,26 @@ public class Group {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Group group = (Group) o;
+
+        if (!id.equals(group.id)) return false;
+        if (!groupName.equals(group.groupName)) return false;
+        if (type != group.type) return false;
+        return userMap.equals(group.userMap);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + groupName.hashCode();
+        result = 31 * result + type.hashCode();
+        result = 31 * result + userMap.hashCode();
+        return result;
+    }
 }

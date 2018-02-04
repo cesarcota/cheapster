@@ -15,7 +15,7 @@ public interface UserService extends Service {
 
     List<User> findAllUsers();
 
-    List<Group> findAllGroups(User user);
+
 
 
 
