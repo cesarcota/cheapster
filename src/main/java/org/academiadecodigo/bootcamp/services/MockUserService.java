@@ -52,8 +52,11 @@ public class MockUserService implements UserService{
     }
 
     @Override
-    public List<Group> findAllGroups(User user) {
+    public void updateRound(Integer id) {
 
-        return new ArrayList<Group>(user.getGroupMap().values());
+
+
     }
+
+
 }

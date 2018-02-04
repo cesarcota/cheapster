@@ -25,6 +25,10 @@ public class User {
     @Email
     private String email;
 
+    //The first value of the array is the total amount of rouds
+    //The second value is the rounds paid the by the user
+    private Map <Integer,Integer[]> ratio = new HashMap<>();
+
 
     private Map<Integer, Group> groupMap=  new HashMap<>();
 
@@ -84,5 +88,13 @@ public class User {
                 ", email='" + email + '\'' +
                 ", groupMap=" + groupMap +
                 '}';
+    }
+
+    public Map<Integer, Integer[]> getRatio() {
+        return ratio;
+    }
+
+    public void setRatio(Map<Integer, Integer[]> ratio) {
+        this.ratio = ratio;
     }
 }
