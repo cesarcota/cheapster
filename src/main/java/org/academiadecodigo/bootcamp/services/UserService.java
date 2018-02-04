@@ -15,7 +15,7 @@ public interface UserService extends Service {
 
     List<User> findAllUsers();
 
-
+    void updateRound(Integer id);
 
 
 

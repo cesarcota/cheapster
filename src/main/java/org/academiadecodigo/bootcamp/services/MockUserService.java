@@ -48,5 +48,10 @@ public class MockUserService implements UserService{
         return new ArrayList<User>(userMap.values());
     }
 
+    @Override
+    public void updateRound(Integer id) {
+
+    }
+
 
 }
