@@ -2,9 +2,11 @@ package org.academiadecodigo.bootcamp.authenticator;
 
 import org.academiadecodigo.bootcamp.models.User;
 import org.academiadecodigo.bootcamp.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class Authenticate {
+public class Authenticator {
 
+    @Autowired
     private UserService userService;
 
     public boolean authenticateByEmail(String email, String password){
@@ -13,7 +15,5 @@ public class Authenticate {
     }
 
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
+
 }

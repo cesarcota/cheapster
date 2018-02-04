@@ -19,6 +19,9 @@ public class MockUserService implements UserService{
         if(user==null){
             return;
         }
+        if (findByEmail(user.getEmail()) != null){
+            return;
+        }
 
         userMap.put(user.getEmail(),user);
 

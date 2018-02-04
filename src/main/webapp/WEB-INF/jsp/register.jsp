@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <form:form method="post" modelAttribute="user">
     <p>Name: <form:input path="userName" class="form-control input-sm chat-input" placeholder="username"/></p>
     <form:errors path="userName" style="color:red" value="${error}"/>
@@ -24,10 +23,12 @@
     <br/>
 
 
-    <input href="#"  type="submit" name="login" value="Register" >
+    <input href="#"  type="submit" name="register" value="register" >
 
 
 </form:form>
+
+
 
 </body>
 </html>

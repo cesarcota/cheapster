@@ -1,6 +1,6 @@
 package org.academiadecodigo.bootcamp.controllers;
 
-import org.academiadecodigo.bootcamp.authenticator.Authenticate;
+import org.academiadecodigo.bootcamp.authenticator.Authenticator;
 import org.academiadecodigo.bootcamp.models.User;
 import org.academiadecodigo.bootcamp.services.UserService;
 import org.academiadecodigo.bootcamp.utils.Attribute;
@@ -21,7 +21,9 @@ public class RegisterController {
 
     @Autowired
     private UserService userService;
-    private Authenticate authenticate;
+
+    @Autowired
+    private Authenticator authenticator;
 
     // Map the URL/Verb to the method
     @RequestMapping(method = RequestMethod.GET, value = {"/register"})
@@ -35,24 +37,23 @@ public class RegisterController {
 
     }
 
+
     @RequestMapping(params = Attribute.register, method = RequestMethod.POST,value ={"register"})
     public String doregister(Model model , @Valid @ModelAttribute("user") User user, BindingResult bindingResult){
 
-
-        authenticate.setUserService(userService);
 
         //If the user/pass fields are empty, display the same view
         if(bindingResult.hasErrors()){
             return Attribute.register;
         }
 
-        //If Authenticate succeeds
-        if(authenticate.authenticateByEmail(user.getEmail(),user.getPassword())){
+        //If Authenticator succeeds
+        if(authenticator.authenticateByEmail(user.getEmail(),user.getPassword())){
             //Changes the name of the button to change between users and bootcamps
             return Attribute.redirect(Attribute.login);
         }else{
             model.addAttribute("error","Failed to register the user. Please fill the right way the fields.");
-            return Attribute.register;
+            return Attribute.redirect(Attribute.login);
         }
 
     }

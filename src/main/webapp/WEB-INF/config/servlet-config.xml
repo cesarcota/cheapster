@@ -19,4 +19,7 @@
     <bean id="user" class="org.academiadecodigo.bootcamp.models.User">
     </bean>
 
+    <bean id="authenticator" class="org.academiadecodigo.bootcamp.authenticator.Authenticator">
+    </bean>
+
 </beans>
