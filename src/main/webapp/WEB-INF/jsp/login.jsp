@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Login</title>
@@ -31,6 +32,8 @@
 
 </form:form>
 
+<div style="color:red">${error}</div>
+<div style="color:#466cff">${success}</div>
 
 </body>
 </html>

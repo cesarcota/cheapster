@@ -8,10 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -39,7 +37,7 @@ public class RegisterController {
 
 
     @RequestMapping(params = Attribute.register, method = RequestMethod.POST,value ={"register"})
-    public String doregister(Model model , @Valid @ModelAttribute("user") User user, BindingResult bindingResult){
+    public String doRegister(Model model , @Valid @ModelAttribute("user") User user, BindingResult bindingResult, RedirectAttributes redirectAttributes){
 
 
         //If the user/pass fields are empty, display the same view
@@ -47,14 +45,20 @@ public class RegisterController {
             return Attribute.register;
         }
 
-        //If Authenticator succeeds
-        if(authenticator.authenticateByEmail(user.getEmail(),user.getPassword())){
-            //Changes the name of the button to change between users and bootcamps
-            return Attribute.redirect(Attribute.login);
-        }else{
-            model.addAttribute("error","Failed to register the user. Please fill the right way the fields.");
-            return Attribute.redirect(Attribute.login);
+
+        if(userService.findByEmail(user.getEmail())!=null){
+            model.addAttribute("error","There is already an user with that email.");
+            return Attribute.register;
         }
+
+
+        userService.addUser(user);
+
+        redirectAttributes.addFlashAttribute(Attribute.success, "User "+user.getUserName()+" was created successfully!");
+
+        return Attribute.redirect(Attribute.login);
+
+
 
     }
 
