@@ -34,7 +34,7 @@
 
 
     </select>
-    <input type="submit" value="Create" formaction="add"/>
+    <input type="submit" value="Create" formaction="newgroup/add"/>
 
 </form:form>
 
