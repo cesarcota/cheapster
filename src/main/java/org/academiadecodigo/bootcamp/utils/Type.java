@@ -1,13 +1,16 @@
 package org.academiadecodigo.bootcamp.utils;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 public enum Type {
-    BEER,
-    COFFEE,
-    MEALS
+    BEER ("Beer"), COFEE ("Cofee"), MEALS("Meals");
 
-
+    private String type;
+    Type(String s){
+        type = s;
+    }
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
 }
