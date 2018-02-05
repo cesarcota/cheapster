@@ -17,12 +17,31 @@
     </bean>
 
     <bean id="user" class="org.academiadecodigo.bootcamp.models.User">
+
     </bean>
 
     <bean id="authenticator" class="org.academiadecodigo.bootcamp.authenticator.Authenticator">
     </bean>
 
     <bean id="groupService" class="org.academiadecodigo.bootcamp.services.MockGroupService">
+        <property name="groupMap">
+            <map>
+                <entry key="1">
+                    <bean class="org.academiadecodigo.bootcamp.models.Group">
+                        <property name="groupName"  value="OS TESOS"/>
+                            <property name="id" value="1"/>
+                            <property name="type" value="BEER"/>
+                    </bean>
+                </entry>
+                <entry key="2">
+                    <bean class="org.academiadecodigo.bootcamp.models.Group">
+                        <property name="groupName"  value="Soldados da Paz"/>
+                        <property name="id" value="2"/>
+                        <property name="type" value="COFFEE"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
     </bean>
 
     <bean id="group" class="org.academiadecodigo.bootcamp.models.Group">

@@ -54,4 +54,14 @@ public class MockUserService implements UserService{
     }
 
 
+
+    //to delete before final deployment
+
+    public Map<String, User> getUserMap() {
+        return userMap;
+    }
+
+    public void setUserMap(Map<String, User> userMap) {
+        this.userMap = userMap;
+    }
 }

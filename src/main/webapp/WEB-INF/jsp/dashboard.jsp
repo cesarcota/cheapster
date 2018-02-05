@@ -14,6 +14,8 @@
 
 <h1 class = "listof">"List of Groups" </h1>
 
+<a class="newGroupButton" role="button" href="newgroup" name="newgroup">New Group</a>
+
 <table class="table table-hover">
     <thead class="thead-dark">
     <tr>
@@ -27,7 +29,10 @@
     <ul>
         <c:forEach var="group" items="${groupList}">
         <tr>
-            <td>${group.groupName}</td>
+            <td>
+                <a href="group/${group.id}"> ${group.groupName}</a>
+            </td>
+
         </tr>
         </c:forEach>
     </ul>

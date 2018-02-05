@@ -39,7 +39,13 @@ public class MockGroupService implements GroupService {
 
     }
 
+    public Map<Integer, Group> getGroupMap() {
+        return groupMap;
+    }
 
+    public void setGroupMap(Map<Integer, Group> groupMap) {
+        this.groupMap = groupMap;
+    }
 
     @Override
     public Group findById(Integer id) {
