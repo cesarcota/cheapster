@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="co" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <html>
@@ -25,8 +26,15 @@
 <form:form method="post" modelAttribute="group">
     <p><form:input path="groupName" placeholder="Group Name"/><form:errors path="groupName" cssClass="error"/><form:errors/></p>
 
-    <p><form:select path="type" placeHolder="Type"/></p>
-    <input type="submit" value="Create"
+    <select name="Type" id="Type">
+        <option value=""></option>
+        <co:forEach items="${Type}" var="value">
+        <option> ${value}</option>
+            </co:forEach>
+
+
+    </select>
+    <input type="submit" value="Create" formaction="add"/>
 
 </form:form>
 
