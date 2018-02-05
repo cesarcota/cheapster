@@ -1,7 +1,7 @@
 package org.academiadecodigo.bootcamp.utils;
 
 public enum Type {
-    BEER ("Beer"), COFEE ("Cofee"), MEALS("Meals");
+    BEER ("Beer"), COFFEE ("Coffee"), MEALS("Meals");
 
     private String type;
     Type(String s){
