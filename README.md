@@ -5,6 +5,6 @@
 
 This project is a team effort that includes: César Cota && Luís Serpa && Diogo Brandão && Rodrigo Duarte
 
-The project is in its very initial fasem so there's not mush to see.
+The project is in it's very initial fase so there's not much to see.
 
 Thank you for visiting
